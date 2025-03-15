@@ -1,0 +1,16 @@
+<p>task works!</p>
+
+{{taskData | json}}
+
+<button (click)="sendData()">send</button>
+
+<div class="table-responsive-sm" style="margin-top: 5px;">
+    <table class="table table-bordered" >
+        <tr>
+            <td><button class="btn btn-dark" (click)="reverseString(string)" style="font-weight:bold">Reverse a String</button></td>
+            <td><input type="text" [(ngModel)] ="string"></td>
+            <td *ngIf="string && reverseStr"><button class="btn btn-danger" (click)="clearBox()" style="font-weight:bold">Clear</button></td>
+            <td *ngIf="string && reverseStr">{{reverseStr === string ? reverseStr + ' is a Palindrome' : reverseStr + ' is not a Palindrome'}}</td>
+        </tr>
+    </table>
+</div> 

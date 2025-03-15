@@ -1,0 +1,89 @@
+<p>create-employee works!</p>
+<div>
+    <table>
+        <tr>
+            <td>Employee ID</td>
+            <td><input type="number" [(ngModel)]="employeeId"></td>
+        </tr>
+        <tr>
+            <td>Employee First Name</td>
+            <td><input type="text" [(ngModel)]="firstname"></td>
+        </tr>
+        <tr>
+            <td>Employee Last Name</td>
+            <td><input type="text" [(ngModel)]="lastname"></td>
+        </tr>
+        <tr>
+            <td>Employee Email</td>
+            <td><input type="text" [(ngModel)]="email"></td>
+        </tr>
+        <tr>
+            <td>Employee Phone</td>
+            <td><input type="number" [(ngModel)]="phone"></td>
+        </tr>
+    </table>
+</div>
+<div>
+    <button (click)="createEmployee()">Create Employee</button>
+    <button (click)="cancel()">Cancel</button>
+</div>
+<!-- <div class="table-responsive-sm">
+    <h1>Employee Details</h1>
+    <div class="form-group">
+        <table>
+            <tr>
+                <td><label for="id">Employee ID: </label></td>
+                <td>{{employeeId}}</td>
+            </tr>
+            <tr>
+                <td><label for="id">Employee First Name: </label></td>
+                <td>{{firstname}}</td>
+            </tr>
+            <tr>
+                <td><label for="id">Employee Last Name: </label></td>
+                <td>{{lastname}}</td>
+            </tr>
+            <tr>
+                <td><label for="id">Email: </label></td>
+                <td>{{email}}</td>
+            </tr>
+            <tr>
+                <td><label for="id">Phone: </label></td>
+                <td>{{phone}}</td>
+            </tr>
+        </table>
+    </div>
+</div> -->
+<app-list-employee></app-list-employee>
+<div class="container">
+    <div class="table-responsive-sm">
+        <h1>Employee List</h1>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>S.No</th>
+                    <th>Employee ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tr *ngIf="employeeArray.length == 0">
+                <td colspan="10">No Records Found</td>
+            <tr *ngFor="let employee of employeeArray; index as i">
+                <td>{{i+1}}</td>
+                <td>{{employee.employeeId}}</td>
+                <td>{{employee.firstname}}</td>
+                <td>{{employee.lastname}}</td>
+                <td>{{employee.email}}</td>
+                <td>{{employee.phone}}</td>
+                <td>
+                    <div><tr><button (click)="editEmployee(i)">Edit</button></tr></div>
+                    <div style="margin-top: 5px;" ><tr><button (click)="deleteEmployee(i)">Delete</button></tr></div>
+                </td>
+            </tr>
+        </table>       
+    </div>
+</div>
